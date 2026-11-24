@@ -7,7 +7,7 @@ import {
   TabTrigger,
   TabTriggerSlotProps,
 } from 'expo-router/ui';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, useWindowDimensions, View } from 'react-native';
 
 import { MaxContentWidth, Spacing } from '@/constants/theme';
 
@@ -55,27 +55,56 @@ export function TabButton({ children, isFocused, ...props }: TabTriggerSlotProps
 }
 
 export function CustomTabList(props: TabListProps) {
+  const { width } = useWindowDimensions();
+  const isMobile = width < 768;
+
   return (
-    <View {...props} pointerEvents="box-none" style={styles.tabListContainer}>
-      <ThemedView type="backgroundElement" style={styles.innerContainer}>
-        <ThemedText type="smallBold" style={styles.brandText}>
-          THREE LAKES GOLF CLUB
-        </ThemedText>
+    <View
+      {...props}
+      pointerEvents="box-none"
+      style={[
+        styles.tabListContainer,
+        isMobile && styles.mobileTabListContainer,
+      ]}
+    >
+      <ThemedView
+        type="backgroundElement"
+        style={[
+          styles.innerContainer,
+          isMobile && styles.mobileInnerContainer,
+        ]}
+      >
+        {!isMobile && (
+          <ThemedText type="smallBold" style={styles.brandText}>
+            THREE LAKES GOLF CLUB
+          </ThemedText>
+        )}
 
         {props.children}
       </ThemedView>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   tabListContainer: {
     position: 'absolute',
+    top: 0,
     width: '100%',
     padding: Spacing.three,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
+  },
+    mobileTabListContainer: {
+    position: 'fixed',
+    top: undefined,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: '100%',
+    padding: 0,
+    alignItems: 'flex-end',
+    zIndex: 100,
   },
   innerContainer: {
     paddingVertical: Spacing.two,
@@ -86,6 +115,16 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     gap: Spacing.two,
     maxWidth: MaxContentWidth,
+  },
+  mobileInnerContainer: {
+    width: '100%',
+    maxWidth: '100%',
+        flexGrow: 0,
+    borderRadius: 0,
+    paddingVertical: Spacing.three,
+    paddingHorizontal: Spacing.two,
+    justifyContent: 'space-around',
+    gap: 0,
   },
   brandText: {
     marginRight: 'auto',
