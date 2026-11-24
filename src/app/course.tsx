@@ -3,11 +3,11 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import {
-    Pressable,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -58,7 +58,7 @@ export default function CourseScreen() {
       >
         <Pressable
           style={styles.backButton}
-          onPress={() => router.back()}
+          onPress={() => router.replace('/(tabs)')}
         >
           <Text style={styles.backText}>‹  BACK</Text>
         </Pressable>

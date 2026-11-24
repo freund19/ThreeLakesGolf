@@ -1,5 +1,6 @@
 
 import { Image } from 'expo-image';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import {
   Linking,
@@ -133,13 +134,13 @@ source={require('../../../assets/images/three-lakes-logo.jpg')}
             title="The Course"
             subtitle="Explore the course"
             symbol="⌖"
-            onPress={openWebsite}
+            onPress={() => router.push('/course')}
           />
           <QuickLink
             title="Rates"
             subtitle="Golf and cart rates"
             symbol="$"
-            onPress={openWebsite}
+            onPress={() => router.push('/rates')}
           />
           <QuickLink
             title="Lessons"
@@ -170,7 +171,7 @@ source={require('../../../assets/images/three-lakes-logo.jpg')}
 
         {/* Events */}
         <SectionTitle title="Upcoming Events" action="VIEW ALL" />
-        <Pressable style={styles.eventCard} onPress={openWebsite}>
+        <Pressable style={styles.eventCard} onPress={() => router.push('/events')}>
           <View style={styles.eventIcon}>
             <Text style={styles.eventIconText}>CAL</Text>
           </View>

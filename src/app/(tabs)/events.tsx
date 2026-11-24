@@ -1,5 +1,12 @@
 
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { router } from 'expo-router';
+import {
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const COLORS = {
@@ -20,9 +27,16 @@ export default function EventsScreen() {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
+        <Pressable
+          style={styles.backButton}
+          onPress={() => router.replace('/(tabs)')}
+        >
+          <Text style={styles.backText}>BACK TO HOME</Text>
+        </Pressable>
+
         <View style={styles.header}>
           <Text style={styles.eyebrow}>THREE LAKES GOLF CLUB</Text>
-          <Text style={styles.title}>Events & Tournaments</Text>
+          <Text style={styles.title}>Events &amp; Tournaments</Text>
           <Text style={styles.description}>
             Stay up to date with upcoming events at Three Lakes.
           </Text>
@@ -63,6 +77,17 @@ const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 20,
     paddingBottom: 36,
+  },
+  backButton: {
+    alignSelf: 'flex-start',
+    paddingVertical: 12,
+    paddingRight: 18,
+  },
+  backText: {
+    color: COLORS.green,
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 1,
   },
   header: {
     paddingTop: 22,
