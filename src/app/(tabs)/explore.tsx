@@ -96,11 +96,13 @@ export default function ExploreScreen() {
       styles.linkCard,
       pressed && styles.pressed,
     ]}
-       onPress={() => {
+           onPress={() => {
       if (item.title === 'Golf Rates') {
         router.push('/rates');
       } else if (item.title === 'The Course') {
         router.push('/course');
+      } else if (item.title === 'Events & Tournaments') {
+        router.push('/events');
       } else {
         openWebsite();
       }
