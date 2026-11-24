@@ -35,10 +35,10 @@ const sections = [
     subtitle: 'Golf equipment and merchandise',
     symbol: '▣',
   },
-  {
-    title: 'Huckleberry Restaurant',
-    subtitle: 'Breakfast, lunch, and more',
-    symbol: '☕',
+    {
+    title: 'Food & Beverage',
+    subtitle: 'Food and beverage services at Three Lakes',
+    symbol: 'DIN',
   },
   {
     title: 'Events & Tournaments',
@@ -76,8 +76,8 @@ export default function ExploreScreen() {
   <Text style={styles.featureEyebrow}>WELCOME TO THREE LAKES</Text>
   <Text style={styles.featureTitle}>More than just golf.</Text>
   <Text style={styles.featureDescription}>
-    Discover the course, enjoy a meal at Huckleberry, or
-    find your next golf event.
+        Explore the course, discover everything Three Lakes
+    has to offer, and find your next golf event.
   </Text>
   <Pressable style={styles.featureButton} onPress={openWebsite}>
     <Text style={styles.featureButtonText}>

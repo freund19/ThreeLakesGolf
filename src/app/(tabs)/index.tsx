@@ -148,9 +148,9 @@ source={require('../../../assets/images/three-lakes-logo.jpg')}
             onPress={openWebsite}
           />
           <QuickLink
-            title="Huckleberry"
-            subtitle="Food and specials"
-            symbol="☕"
+                        title="Food & Beverage"
+            subtitle="Food and beverage services"
+            symbol="DIN"
             onPress={openWebsite}
           />
         </View>
