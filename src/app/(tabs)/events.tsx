@@ -1,4 +1,3 @@
-
 import { router } from 'expo-router';
 import {
   Pressable,
@@ -29,7 +28,7 @@ export default function EventsScreen() {
       >
         <Pressable
           style={styles.backButton}
-          onPress={() => router.replace('/(tabs)')}
+          onPress={() => router.replace('/')}
         >
           <Text style={styles.backText}>BACK TO HOME</Text>
         </Pressable>
@@ -79,9 +78,11 @@ const styles = StyleSheet.create({
     paddingBottom: 36,
   },
   backButton: {
-    alignSelf: 'flex-start',
-    paddingVertical: 12,
-    paddingRight: 18,
+  alignSelf: 'flex-start',
+  paddingVertical: 12,
+  paddingRight: 18,
+  position: 'relative',
+  zIndex: 10,
   },
   backText: {
     color: COLORS.green,
